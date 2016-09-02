@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   let User = sequelize.define('User', {
     id: {
-      type: DataType.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
@@ -32,7 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     deleted_at: DataTypes.DATE
   }, {
-    tableName: 'users'
+    tableName: 'users',
+    classMethods: {
+      associate: (models) => {
+
+      }
+    }
   });
   return User;
 }

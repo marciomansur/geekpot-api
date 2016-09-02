@@ -1,12 +1,22 @@
 import Hapi from 'hapi';
 import config from 'config';
+import routes from './app/routes';
 
-const server = new Hapi.Server();
-const routes = [];
+const plugins = [];
+const server = new Hapi.Server({
+  connections: {
+    routes: { cors: true }
+  }
+});
 
 server.connection(config.server);
 
-server.register(routes, err => {
+
+server.register(plugins, err => {
+  if (err) throw err;
+
+  server.route(routes);
+
   server.start(() => {
     if (!config.isTest) {
       console.log('Geekpot Users API');
