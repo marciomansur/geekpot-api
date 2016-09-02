@@ -4,7 +4,7 @@
   "description": "A simple API to list client permissions over geekpot methods",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development node_modules/nodemon/bin/nodemon --exex babel-node index.js",
+    "dev": "NODE_ENV=development node_modules/nodemon/bin/nodemon.js --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "config": "^1.21.0",
     "hapi": "^15.0.3",
     "joi": "^9.0.4",
+    "mailgun-js": "^0.7.12",
     "sqlite3": "^3.1.4"
   },
   "devDependencies": {
