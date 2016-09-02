@@ -1,0 +1,40 @@
+{
+  "name": "geekpot-api",
+  "version": "1.0.0",
+  "description": "A simple API to list client permissions over geekpot methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciomansur/geekpot-api.git"
+  },
+  "keywords": [
+    "api",
+    "geekpot"
+  ],
+  "author": "Marcio Mansur <mrabeloo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marciomansur/geekpot-api/issues"
+  },
+  "homepage": "https://github.com/marciomansur/geekpot-api#readme",
+  "dependencies": {
+    "boom": "^4.0.0",
+    "chai": "^3.5.0",
+    "config": "^1.21.0",
+    "hapi": "^15.0.3",
+    "joi": "^9.0.4",
+    "sqlite3": "^3.1.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-plugin-import": "^1.14.0",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2"
+  }
+}
