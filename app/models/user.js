@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
-    role: {
+    admin: {
       allowNull: false,
-      type: DataTypes.CHAR(1)
+      type: DataTypes.BOOLEAN
     },
     created_at: {
       type: DataTypes.DATE,
