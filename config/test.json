@@ -17,5 +17,9 @@
       }
     }
   },
-  "isTest": true
+  "isTest": true,
+  "key": {
+    "privateKey": ":&8X3I)u$]90s.Khx792w0r?;52R%3",
+    "ttl": 1
+  }
 }

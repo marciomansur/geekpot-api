@@ -17,4 +17,16 @@ module.exports = [{
       }
     }
   }
+}, {
+  method: 'POST',
+  path: '/api/users/auth',
+  handler: userController.authenticate,
+  config: {
+    validate: {
+      payload: {
+        email: Joi.string().email().required(),
+        password: Joi.string().required()
+      }
+    }
+  }
 }];

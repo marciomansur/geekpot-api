@@ -1,4 +1,6 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import config from 'config';
 
 module.exports = (sequelize, DataTypes) => {
   let User = sequelize.define('User', {
@@ -53,13 +55,21 @@ module.exports = (sequelize, DataTypes) => {
         return bcrypt.hashSync(password, salt);
       },
 
-      verifyPassword: (password) => {
+      verifyPassword: (password, oldPass) => {
         if (!password) {
           return false;
         }
 
         var salt = bcrypt.genSaltSync(10);
-        return bcrypt.compareSync(password, this.password, salt);
+        return bcrypt.compareSync(password, oldPass, salt);
+      },
+
+      genToken: (id) => {
+        var token = jwt.sign({
+          id: id,
+        }, config.key.privateKey);
+
+        return token;
       }
     }
   });

@@ -33,4 +33,40 @@ describe('Model: User', () => {
     });
   });
 
+  // Tests the authentication
+  describe('POST /api/users/auth', () => {
+    // describe('status 200', () => {
+    //   it('authenticates the user', done => {
+    //     server.inject({
+    //       method: 'POST',
+    //       url: '/api/users/auth',
+    //       payload: {
+    //         email: 'mrabeloo@gmail.com',
+    //         password: '123123'
+    //       }
+    //     }, )
+    //   });
+    // });
+    describe('status 400', () => {
+      it('fails because password does not match', done => {
+        server.inject({
+          method: 'POST',
+          url: '/api/users/auth',
+          payload: {
+            email: 'mrabeloo@gmail.com',
+            password: 'another password'
+          }
+        }, res => {
+          expect(res.statusCode).to.be.equal(400);
+
+          done();
+        });
+      });
+    });
+    // describe('status 404', () => {
+    //   it('fails because user was not found', done => {
+    //
+    //   });
+    // })
+  });
 });
