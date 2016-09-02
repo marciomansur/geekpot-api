@@ -4,6 +4,7 @@
   "description": "A simple API to list client permissions over geekpot methods",
   "main": "index.js",
   "scripts": {
+    "dev": "NODE_ENV=development node_modules/nodemon/bin/nodemon --exex babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
