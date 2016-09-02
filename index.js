@@ -10,12 +10,10 @@ const server = new Hapi.Server({
 });
 
 server.connection(config.server);
-
+server.route(routes);
 
 server.register(plugins, err => {
   if (err) throw err;
-
-  server.route(routes);
 
   server.start(() => {
     if (!config.isTest) {

@@ -4,8 +4,8 @@ import path from 'path';
 import Sequelize from 'sequelize';
 
 const sequelize = new Sequelize(
-  config.database.name,
-  config.database.user,
+  config.database.database,
+  config.database.username,
   config.database.password,
   config.database.params
 );
