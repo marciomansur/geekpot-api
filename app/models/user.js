@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+
 module.exports = (sequelize, DataTypes) => {
   let User = sequelize.define('User', {
     id: {
@@ -18,8 +20,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
-    admin: {
+    password: {
       allowNull: false,
+      type: DataTypes.STRING
+    },
+    admin: {
+      defaultValue: false,
+      type: DataTypes.BOOLEAN
+    },
+    active: {
+      defaultValue: false,
       type: DataTypes.BOOLEAN
     },
     created_at: {
@@ -36,6 +46,20 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: (models) => {
 
+      },
+
+      hashPassword: (password) => {
+        let salt = bcrypt.genSaltSync(10);
+        return bcrypt.hashSync(password, salt);
+      },
+
+      verifyPassword: (password) => {
+        if (!password) {
+          return false;
+        }
+
+        var salt = bcrypt.genSaltSync(10);
+        return bcrypt.compareSync(password, this.password, salt);
       }
     }
   });
