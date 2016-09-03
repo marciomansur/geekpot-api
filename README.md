@@ -25,8 +25,8 @@ You'll first need to import the SQL in database folder.
 ## Endpoint
 
 
-`POST api/users/
-{
+```POST api/users/``
+`{
     "name": string,
     "username": string,
     "password": string,
@@ -35,17 +35,18 @@ You'll first need to import the SQL in database folder.
 }
 `
 
-`POST api/users/auth
-{
+```POST api/users/auth```
+
+`{
     "password": string,
     "email": string
 }
 `
 
-`GET api/users`
+```GET api/users```
 
-`PUT api/users/{id}
-{
+```PUT api/users/{id}``
+`{
     "name": string (optional),
     "username": string (optional),
     "password": string (optional),
@@ -54,4 +55,4 @@ You'll first need to import the SQL in database folder.
 }
 `
 
-`DELETE api/users/{id}`
+```DELETE api/users/{id}```
