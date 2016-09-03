@@ -6,8 +6,13 @@ describe('Model: User', () => {
   const mocks = [{
     name: 'Marcio Mansur',
     username: 'marciomansur',
-    password: "123123",
-    email: 'mrabeloo@gmail.com'
+    password: "test",
+    email: 'test@gmail.com'
+  }, {
+    name: 'Wesley Milan',
+    username: 'wesleymilan',
+    password: "33333333",
+    email: 'wesleymilan@gmail.com'
   }];
 
   // POST test case
@@ -35,18 +40,24 @@ describe('Model: User', () => {
 
   // Tests the authentication
   describe('POST /api/users/auth', () => {
-    // describe('status 200', () => {
-    //   it('authenticates the user', done => {
-    //     server.inject({
-    //       method: 'POST',
-    //       url: '/api/users/auth',
-    //       payload: {
-    //         email: 'mrabeloo@gmail.com',
-    //         password: '123123'
-    //       }
-    //     }, )
-    //   });
-    // });
+    describe('status 200', () => {
+      it('authenticates the user', done => {
+        server.inject({
+          method: 'POST',
+          url: '/api/users/auth',
+          payload: {
+            email: 'test@gmail.com',
+            password: 'test'
+          }
+        }, res => {
+          expect(res.statusCode).to.be.equal(200);
+          expect(res.result.token).to.exist;
+          expect(res.result.data.username).to.be.equal('marciomansur');
+
+          done();
+        })
+      });
+    });
     describe('status 400', () => {
       it('fails because password does not match', done => {
         server.inject({
@@ -63,10 +74,13 @@ describe('Model: User', () => {
         });
       });
     });
-    // describe('status 404', () => {
-    //   it('fails because user was not found', done => {
-    //
-    //   });
-    // })
+  });
+
+  describe('DELETE /api/users/{id}', () => {
+    describe('status 200', () => {
+      it('deletes an user', done => {
+        done();
+      });
+    });
   });
 });

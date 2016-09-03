@@ -10,7 +10,12 @@ const server = new Hapi.Server({
 });
 
 server.connection(config.server);
-server.route(routes);
+
+server.register(require('hapi-auth-jwt2'), err => {
+  server.auth.strategy('jwt', 'jwt', require('./app/plugins/auth'));
+  //server.auth.default('jwt');
+  server.route(routes);
+});
 
 server.register(plugins, err => {
   if (err) throw err;

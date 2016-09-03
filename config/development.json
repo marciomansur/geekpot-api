@@ -12,7 +12,8 @@
       "define": {
         "underscored": true,
         "timestamps": true,
-        "paranoid": true
+        "paranoid": true,
+        "logging": false
       }
     }
   },
