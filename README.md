@@ -19,40 +19,72 @@ To run tests, type:
 npm test
 ```
 
+There`s no production or deploy rotine yet.
+
 You'll first need to import the SQL in database folder.
 
 
-## Endpoint
+## Endpoints
 
+The API have secured endpoints (by authentication) and endpoints that doesn't need authentication.
 
-```POST api/users/``
-`{
+All these endpoints need this configuration on headers:
+
+```
+Content-Type: application/json
+```
+### Endpoints without authentication
+
+```
+POST api/users/
+{
     "name": string,
     "username": string,
     "password": string,
     "email": string,
     "admin": boolean (optional)
 }
-`
+Creates a new user. If there's no admin flag as true, the user is a client.
+```
 
-```POST api/users/auth```
-
-`{
+```POST api/users/auth
+{
     "password": string,
     "email": string
 }
-`
+Authenticates the user and gives a token that is used as authentication.
+This endpoint gives you the user data and a token.
+```
 
-```GET api/users```
+### Endpoints with authentication
 
-```PUT api/users/{id}``
-`{
+These endpoints, you must put the token on headers to go on:
+
+```
+Content-Type: application/json
+Authorization: Bearer <authentication token>
+```
+
+```
+GET api/users
+Search all the users on database (admins only)
+```
+
+```PUT api/users/{id}
+{
     "name": string (optional),
     "username": string (optional),
     "password": string (optional),
     "email": string (optional),
     "admin": boolean (optional)
 }
-`
+Updates a user data (admins only)
+```
 
-```DELETE api/users/{id}```
+```
+DELETE api/users/{id}
+Deletes a user from database (admins only)
+```
+
+## License
+MIT
