@@ -21,5 +21,9 @@
   "key": {
     "privateKey": ":&8X3I)u$]90s.Khx792w0r?;52R%3",
     "ttl": 1
+  },
+  "email": {
+    "domain": "sandbox2e61110d572a4451ab242c564c97beca.mailgun.org",
+    "key": "key-3767b31ac800163dc414c32c07142e86"
   }
 }
