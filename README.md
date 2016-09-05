@@ -57,6 +57,11 @@ Authenticates the user and gives a token that is used as authentication.
 This endpoint gives you the user data and a token.
 ```
 
+```
+GET api/users/active/{id}
+Activate the user. Enpoint sent by email.
+```
+
 ### Endpoints with authentication
 
 These endpoints, you must put the token on headers to go on:
@@ -70,6 +75,12 @@ Authorization: Bearer <authentication token>
 GET api/users
 Search all the users on database (admins only)
 ```
+
+```
+GET api/users/deleted
+Search all the users deleted on database (admins only)
+```
+
 
 ```
 PUT api/users/{id}

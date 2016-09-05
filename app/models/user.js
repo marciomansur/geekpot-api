@@ -64,10 +64,11 @@ module.exports = (sequelize, DataTypes) => {
         return bcrypt.compareSync(password, oldPass, salt);
       },
 
-      genToken: (id, scope) => {
+      genToken: (id, scope, active) => {
         var token = jwt.sign({
           id: id,
-          scope: scope
+          scope: scope,
+          active: active
         }, config.key.privateKey);
 
         return token;

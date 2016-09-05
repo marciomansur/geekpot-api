@@ -31,10 +31,23 @@ module.exports = [{
   }
 }, {
   method: 'GET',
+  path: '/api/users/active/{id}',
+  handler: userController.active,
+  config: {
+    validate: {
+      params: { id: Joi.number().integer().required() }
+    }
+  }
+}, {
+  method: 'GET',
   path: '/api/users',
   handler: userController.listUsers,
   config: {
-    auth: 'jwt'
+    auth: 'jwt',
+    pre: [
+      { method: userController._verifyAdmin },
+      { method: userController._verifyActive }
+    ]
   }
 }, {
   method: 'PUT',
@@ -55,5 +68,16 @@ module.exports = [{
     validate: {
       params: { id: Joi.number().integer().required() }
     }
+  }
+}, {
+  method: 'GET',
+  path: '/api/users/deleted',
+  handler: userController.destroy,
+  config: {
+    auth: 'jwt',
+    pre: [
+      { method: userController._verifyAdmin },
+      { method: userController._verifyActive }
+    ]
   }
 }];

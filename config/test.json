@@ -4,11 +4,12 @@
     "port": 3001
   },
   "database": {
-    "database": "geekpot",
-    "username": "root",
+    "database": "geekpot_test",
+    "username": "",
     "password": "",
     "params": {
-      "dialect": "mysql",
+      "dialect": "sqlite",
+      "storage": "geekpot_test.sqlite",
       "define": {
         "underscored": true,
         "timestamps": true,
@@ -24,6 +25,7 @@
   },
   "email": {
     "domain": "sandbox2e61110d572a4451ab242c564c97beca.mailgun.org",
-    "key": "key-3767b31ac800163dc414c32c07142e86"
+    "key": "key-3767b31ac800163dc414c32c07142e86",
+    "from": "marcio@sandbox2e61110d572a4451ab242c564c97beca.mailgun.org"
   }
 }

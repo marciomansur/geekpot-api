@@ -24,6 +24,7 @@
   },
   "email": {
     "domain": "sandbox2e61110d572a4451ab242c564c97beca.mailgun.org",
-    "key": "key-3767b31ac800163dc414c32c07142e86"
+    "key": "key-3767b31ac800163dc414c32c07142e86",
+    "from": "marcio@sandbox2e61110d572a4451ab242c564c97beca.mailgun.org"
   }
 }
