@@ -7,7 +7,7 @@ describe('Model: User', () => {
     name: 'Marcio Mansur',
     username: 'marciomansur',
     password: "test",
-    email: 'test@gmail.com'
+    email: 'mrabeloo@gmail.com'
   }, {
     name: 'Wesley Milan',
     username: 'wesleymilan',
@@ -46,7 +46,7 @@ describe('Model: User', () => {
           method: 'POST',
           url: '/api/users/auth',
           payload: {
-            email: 'test@gmail.com',
+            email: 'mrabeloo@gmail.com',
             password: 'test'
           }
         }, res => {
