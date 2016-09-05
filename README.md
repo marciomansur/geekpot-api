@@ -19,7 +19,7 @@ To run tests, type:
 npm test
 ```
 
-There`s no production or deploy rotine yet.
+There's no production or deploy rotine yet.
 
 You'll first need to import the SQL in database folder.
 
