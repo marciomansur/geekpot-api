@@ -47,7 +47,8 @@ POST api/users/
 Creates a new user. If there's no admin flag as true, the user is a client.
 ```
 
-```POST api/users/auth
+```
+POST api/users/auth
 {
     "password": string,
     "email": string
@@ -70,7 +71,8 @@ GET api/users
 Search all the users on database (admins only)
 ```
 
-```PUT api/users/{id}
+```
+PUT api/users/{id}
 {
     "name": string (optional),
     "username": string (optional),
